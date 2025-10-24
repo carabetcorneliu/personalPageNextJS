@@ -2,7 +2,8 @@
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ArrowDown } from "lucide-react";
-import { SOCIAL_LINKS } from "../config/social";
+import { SOCIAL_LINKS, type SocialLink } from "../config/social";
+import { type ComponentType } from "react";
 
 export function Hero() {
   const handleClickGetInTouch = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -57,7 +58,7 @@ export function Hero() {
             aria-label="Social Links"
             className="flex items-center justify-center gap-6"
           >
-            {SOCIAL_LINKS.map(({ id, label, href, icon: Icon, rel }) => (
+            {SOCIAL_LINKS.map(({ id, label, href, icon: Icon, rel }: SocialLink & { icon?: ComponentType<{ className?: string }> }) => (
               <a
                 key={id}
                 href={href}
@@ -66,7 +67,7 @@ export function Hero() {
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <span className="sr-only">{label}</span>
-                <Icon className="h-6 w-6" aria-hidden="true" />
+                {Icon && <Icon className="h-6 w-6" aria-hidden="true" />}
               </a>
             ))}
           </nav>
