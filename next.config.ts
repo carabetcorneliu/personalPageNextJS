@@ -9,7 +9,9 @@ const nextConfig: NextConfig = {
   // reactCompiler: true,
   // Enable server components
   experimental: {
-    serverActions: true,
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
   },
   // Configure images if you're using next/image
   images: {
