@@ -1,7 +1,8 @@
 "use client";
 import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
-import { SOCIAL_LINKS } from "../config/social";
+import { SOCIAL_LINKS, type SocialLink } from "../config/social";
+import { type ComponentType } from "react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -58,13 +59,11 @@ export function Footer() {
                   </button>
                 ))}
               </div>
-            </div>
-
             {/* Connect */}
             <div>
               <h4 className="font-medium mb-4">Connect</h4>
               <div className="flex gap-4">
-                {SOCIAL_LINKS.map(({ id, label, href, icon: Icon, rel }) => (
+                {SOCIAL_LINKS.map(({ id, href, label, icon: Icon, rel }: SocialLink & { icon?: ComponentType<{ className?: string }> }) => (
                   <a
                     key={id}
                     href={href}
@@ -73,7 +72,7 @@ export function Footer() {
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <span className="sr-only">{label}</span>
-                    <Icon className="h-5 w-5" aria-hidden="true" />
+                    {Icon && <Icon className="h-5 w-5" aria-hidden="true" />}
                   </a>
                 ))}
               </div>
