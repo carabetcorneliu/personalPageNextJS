@@ -1,17 +1,16 @@
 [build]
   command = "npm run build"
   publish = ".next"
-  functions = ".next/functions"
 
 [build.environment]
-  NEXT_TELEMETRY_DISABLED = "1"
-  NODE_VERSION = "20.9.0"
-  NPM_FLAGS = "--legacy-peer-deps"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-[functions]
-  node_bundler = "esbuild"
-  external_node_modules = ["@prisma/client"]
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+  [plugins.inputs]
+    enableForms = true
 
+# Add this if you're using Netlify Forms
 [[redirects]]
   from = "/*"
   to = "/index.html"
