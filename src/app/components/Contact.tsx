@@ -36,17 +36,17 @@ export function Contact() {
     setStatus({});
 
     try {
-      const form = e.target as HTMLFormElement;
-      const formData = new FormData(form);
+      const formDataToSend = new FormData();
+      formDataToSend.append("form-name", "feedback");
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("subject", formData.subject);
+      formDataToSend.append("message", formData.message);
 
       const response = await fetch("/__forms.html", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams(
-          Array.from(formData.entries()) as [string, string][]
-        ).toString(),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formDataToSend,
       });
 
       if (response.ok) {
