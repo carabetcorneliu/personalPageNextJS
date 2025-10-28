@@ -148,18 +148,20 @@ export function Contact() {
                     className="space-y-6"
                   >
                     <input type="hidden" name="form-name" value="contact" />
-                    <div className="space-y-4">
+                    <p className="hidden">
+                      <label>
+                        {`Don't fill this out if you're human:{" "}`}
+                        <input name="bot-field" />
+                      </label>
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium mb-1"
-                        >
-                          Name
+                        <label htmlFor="name" className="block text-sm mb-2">
+                          Name *
                         </label>
                         <Input
                           id="name"
                           name="name"
-                          type="text"
                           value={formData.name}
                           onChange={handleInputChange}
                           required
