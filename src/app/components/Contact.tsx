@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -7,6 +7,9 @@ import { Textarea } from "./ui/textarea";
 import { Badge } from "./ui/badge";
 import { Mail, Clock10, Send } from "lucide-react";
 import { SiTelegram } from "react-icons/si";
+import { motion, AnimatePresence } from "motion/react";
+import { CheckCircle, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import type { ContactFormData, ContactInfo } from "@/types/contact";
 
 const initialFormData: ContactFormData = {
@@ -22,6 +25,18 @@ export function Contact() {
   const [status, setStatus] = useState<{ success?: boolean; message?: string }>(
     {}
   );
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (status.message) {
+      if (status.success) {
+        toast.success(status.message);
+      } else {
+        toast.error(status.message);
+      }
+    }
+  }, [status]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,6 +49,7 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus({});
+    setProgress(0);
 
     try {
       const encode = (data: Record<string, string>) => {
@@ -74,7 +90,27 @@ export function Contact() {
           "An error occurred while submitting the form. Please try again.",
       });
     } finally {
+      // Simulate progress
+      const interval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            return 100;
+          }
+          return prev + 10;
+        });
+      }, 150);
+
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      clearInterval(interval);
+      setProgress(100);
       setIsSubmitting(false);
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setProgress(0);
+        setFormData(initialFormData);
+      }, 3000);
     }
   };
 
@@ -218,10 +254,74 @@ export function Contact() {
                         rows={5}
                       />
                     </div>
-                    <Button type="submit" size="lg" className="w-full">
+                    {/* animation start */}
+                    <div className="space-y-2">
+                      <motion.div
+                        animate={{
+                          width: isSuccess
+                            ? "100%"
+                            : isSubmitting
+                            ? "100%"
+                            : "100%",
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Button
+                          type="submit"
+                          size="lg"
+                          className="w-full relative overflow-hidden"
+                          disabled={isSubmitting || isSuccess}
+                        >
+                          <AnimatePresence mode="wait">
+                            {isSuccess ? (
+                              <motion.div
+                                key="success"
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="flex items-center gap-2"
+                              >
+                                <CheckCircle className="h-5 w-5" />
+                                <span>Success!</span>
+                              </motion.div>
+                            ) : isSubmitting ? (
+                              <motion.div
+                                key="loading"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="flex items-center gap-2"
+                              >
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                                <span>Sending... {progress}%</span>
+                              </motion.div>
+                            ) : (
+                              <motion.div
+                                key="idle"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="flex items-center gap-2"
+                              >
+                                <Send className="h-4 w-4" />
+                                <span>Send Message</span>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+
+                          {/* Progress bar background */}
+                          {isSubmitting && (
+                            <motion.div
+                              className="absolute left-0 top-0 h-full bg-primary-foreground/20"
+                              initial={{ width: "0%" }}
+                              animate={{ width: `${progress}%` }}
+                              transition={{ duration: 0.2 }}
+                            />
+                          )}
+                        </Button>
+                      </motion.div>
+                      {/* <Button type="submit" size="lg" className="w-full">
                       <Send className="h-4 w-4 mr-2" />
                       Send Message
-                    </Button>
+                    </Button> */}
+                    </div>
                   </form>
                 </CardContent>
               </Card>
