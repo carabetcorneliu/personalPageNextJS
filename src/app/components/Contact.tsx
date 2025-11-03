@@ -36,7 +36,7 @@ export function Contact() {
         } else {
           toast.error(status.message);
         }
-      }, 1500);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [status]);
