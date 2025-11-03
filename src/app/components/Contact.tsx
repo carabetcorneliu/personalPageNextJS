@@ -30,11 +30,14 @@ export function Contact() {
 
   useEffect(() => {
     if (status.message) {
-      if (status.success) {
-        toast.success(status.message);
-      } else {
-        toast.error(status.message);
-      }
+      const timer = setTimeout(() => {
+        if (status.success) {
+          toast.success(status.message);
+        } else {
+          toast.error(status.message);
+        }
+      }, 1500);
+      return () => clearTimeout(timer);
     }
   }, [status]);
 
@@ -317,10 +320,6 @@ export function Contact() {
                           )}
                         </Button>
                       </motion.div>
-                      {/* <Button type="submit" size="lg" className="w-full">
-                      <Send className="h-4 w-4 mr-2" />
-                      Send Message
-                    </Button> */}
                     </div>
                   </form>
                 </CardContent>
