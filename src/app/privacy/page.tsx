@@ -95,7 +95,7 @@ export default function Privacy() {
       <section>
         <h2 className="text-2xl font-semibold mb-4">7. Contact</h2>
         <p>For any privacy-related questions, please contact:</p>
-        <p className="mt-2">
+        <p className="mt-5">
           <a href="/go/email/" className="text-blue-600 hover:underline">
             <span style={{ unicodeBidi: "bidi-override", direction: "rtl" }}>
               <span>moc.liamg</span>
