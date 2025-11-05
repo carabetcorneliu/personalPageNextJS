@@ -2,7 +2,7 @@
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ArrowDown } from "lucide-react";
-import { SOCIAL_LINKS, type SocialLink } from "../config/social";
+import { SOCIAL_LINKS, type SocialLink } from "@/config/social";
 import { type ComponentType } from "react";
 
 export function Hero() {
@@ -58,18 +58,28 @@ export function Hero() {
             aria-label="Social Links"
             className="flex items-center justify-center gap-6"
           >
-            {SOCIAL_LINKS.map(({ id, label, href, icon: Icon, rel }: SocialLink & { icon?: ComponentType<{ className?: string }> }) => (
-              <a
-                key={id}
-                href={href}
-                target="_blank"
-                rel={rel}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span className="sr-only">{label}</span>
-                {Icon && <Icon className="h-6 w-6" aria-hidden="true" />}
-              </a>
-            ))}
+            {SOCIAL_LINKS.map(
+              ({
+                id,
+                label,
+                href,
+                icon: Icon,
+                rel,
+              }: SocialLink & {
+                icon?: ComponentType<{ className?: string }>;
+              }) => (
+                <a
+                  key={id}
+                  href={href}
+                  target="_blank"
+                  rel={rel}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <span className="sr-only">{label}</span>
+                  {Icon && <Icon className="h-6 w-6" aria-hidden="true" />}
+                </a>
+              )
+            )}
           </nav>
         </div>
       </div>
