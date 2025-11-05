@@ -31,13 +31,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     icon: SiLinkedin,
     rel: "noopener noreferrer",
   },
-  // {
-  //   id: "x",
-  //   label: "X",
-  //   href: "/go/x",
-  //   icon: SiX,
-  //   rel: "noopener noreferrer",
-  // },
   {
     id: "telegram",
     label: "Telegram",
@@ -51,10 +44,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "/go/email",
     icon: SiMailboxdotorg,
   },
-  //   {
-  //     id: "website",
-  //     label: "Website",
-  //     href: "https://carabet.corneliu",
-  //     icon: Globe,
-  //   },
 ] as const;

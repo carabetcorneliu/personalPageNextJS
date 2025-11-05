@@ -108,7 +108,10 @@ export function Footer() {
               © {currentYear} Carabet Corneliu. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-foreground transition-colors">
+              <a
+                href="/privacy"
+                className="hover:text-foreground transition-colors"
+              >
                 Privacy Policy
               </a>
               <a href="#" className="hover:text-foreground transition-colors">
