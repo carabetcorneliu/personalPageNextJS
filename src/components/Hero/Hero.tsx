@@ -1,18 +1,10 @@
-"use client";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { ArrowDown } from "lucide-react";
+import { HeroClientButtons } from "./HeroClientButtons";
+import { Badge } from "@/components/ui/badge";
 import { SOCIAL_LINKS, type SocialLink } from "@/config/social";
 import { type ComponentType } from "react";
+import ScrollToAboutClientButton from "./ScrollToAboutClientButton";
 
-export function Hero() {
-  const handleClickGetInTouch = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const contactSection = document.getElementById("contact");
-    contactSection?.scrollIntoView({ behavior: "smooth" });
-    const nameInput = document.getElementById("name");
-    nameInput?.focus();
-  };
+export default function Hero() {
   return (
     <section
       id="hero"
@@ -40,19 +32,7 @@ export function Hero() {
             <span className="text-primary">Tailwind</span>.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button asChild size="lg">
-              <a href="#projects">View My Work</a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              onClick={handleClickGetInTouch}
-            >
-              <a href="#contact">Get In Touch</a>
-            </Button>
-          </div>
+          <HeroClientButtons />
 
           <nav
             aria-label="Social Links"
@@ -84,13 +64,7 @@ export function Hero() {
         </div>
       </div>
 
-      <a
-        href="#about"
-        aria-label="Scroll to About section"
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground hover:text-foreground transition-colors motion-safe:animate-bounce"
-      >
-        <ArrowDown className="h-6 w-6" aria-hidden="true" />
-      </a>
+      <ScrollToAboutClientButton />
     </section>
   );
 }

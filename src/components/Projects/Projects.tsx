@@ -1,13 +1,12 @@
-"use client";
-
-import { Card, CardContent, CardFooter } from "./ui/card";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ImageWithFallback } from "./ImageWithFallback";
 import type { Project } from "@/types/project";
+import ViewProjectsOnGithubButton from "./ViewProjectsOnGithubButton";
 
-export function Projects() {
+export default function Projects() {
   const projects: Project[] = [
     {
       title: "Chef Claude App",
@@ -55,12 +54,6 @@ export function Projects() {
     },
   ];
 
-  const handleViewGitHub = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    // Add any additional logic here, e.g., analytics
-    window.open("/go/github", "_blank", "noopener,noreferrer");
-  };
-
   return (
     <section id="projects" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
@@ -69,7 +62,7 @@ export function Projects() {
             <Badge variant="outline" className="mb-4">
               Featured Work
             </Badge>
-            <h2 className="text-3xl md:text-4xl mb-6">Things I've Built</h2>
+            <h2 className="text-3xl md:text-4xl mb-6">Things I{`'`}ve Built</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Here are some of my recent projects that highlight my skills in
               front-end and full-stack development.
@@ -133,20 +126,7 @@ export function Projects() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <a
-              href="/go/github"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleViewGitHub}
-              className="inline-block"
-            >
-              <Button variant="outline" size="lg">
-                <Github className="h-5 w-5 mr-2" />
-                View All Projects on GitHub
-              </Button>
-            </a>
-          </div>
+          <ViewProjectsOnGithubButton />
         </div>
       </div>
     </section>

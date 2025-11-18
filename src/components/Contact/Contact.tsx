@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import { Badge } from "./ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import { Mail, Clock10, Send } from "lucide-react";
 import { SiTelegram } from "react-icons/si";
 import { motion, AnimatePresence } from "motion/react";
@@ -19,7 +19,7 @@ const initialFormData: ContactFormData = {
   message: "",
 };
 
-export function Contact() {
+export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{ success?: boolean; message?: string }>(
@@ -48,11 +48,30 @@ export function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Form submission time recording for spam detection
+  const [formStartTime] = useState(Date.now());
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check if form was filled too quickly (less than 3 seconds)
+    const timeElapsed = (Date.now() - formStartTime) / 1000;
+    if (timeElapsed < 3) {
+      console.log("Submission too fast - likely a bot");
+      return;
+    }
+
     setIsSubmitting(true);
     setStatus({});
     setProgress(0);
+
+    // Start progress simulation
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 90) return prev;
+        return prev + 10;
+      });
+    }, 150);
 
     try {
       const encode = (data: Record<string, string>) => {
@@ -69,6 +88,7 @@ export function Contact() {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "contact",
+          "bot-field": "",
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
@@ -77,43 +97,33 @@ export function Contact() {
       });
 
       if (response.ok) {
-        setFormData(initialFormData);
+        clearInterval(progressInterval);
+        setProgress(100);
         setStatus({
           success: true,
           message: "Thank you for your message! I'll get back to you soon.",
         });
+        setIsSuccess(true);
+
+        setTimeout(() => {
+          setFormData(initialFormData);
+          setIsSuccess(false);
+          setProgress(0);
+        }, 3000);
       } else {
         throw new Error("Form submission failed");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      clearInterval(progressInterval);
+      setProgress(0);
       setStatus({
         success: false,
         message:
           "An error occurred while submitting the form. Please try again.",
       });
     } finally {
-      // Simulate progress
-      const interval = setInterval(() => {
-        setProgress((prev) => {
-          if (prev >= 100) {
-            clearInterval(interval);
-            return 100;
-          }
-          return prev + 10;
-        });
-      }, 150);
-
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      clearInterval(interval);
-      setProgress(100);
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setTimeout(() => {
-        setIsSuccess(false);
-        setProgress(0);
-        setFormData(initialFormData);
-      }, 3000);
     }
   };
 
@@ -195,10 +205,14 @@ export function Contact() {
                     className="space-y-6"
                   >
                     <input type="hidden" name="form-name" value="contact" />
-                    <p className="hidden">
+                    <p className="hidden" aria-hidden="true">
                       <label>
                         {`Don't fill this out if you're human:{" "}`}
-                        <input name="bot-field" />
+                        <input
+                          name="bot-field"
+                          tabIndex={-1}
+                          autoComplete="off"
+                        />
                       </label>
                     </p>
                     <div className="grid md:grid-cols-2 gap-4">

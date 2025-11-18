@@ -2,8 +2,9 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-scroll";
 
-export function Header() {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -68,13 +69,16 @@ export function Header() {
             className="hidden md:flex items-center space-x-8"
           >
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.id}
-                href={`#${item.id}`}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 rounded"
+                to={item.id}
+                smooth={true}
+                duration={500}
+                offset={-15}
+                className="cursor-pointer text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 rounded"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -105,14 +109,17 @@ export function Header() {
           >
             <div className="py-3 space-y-1">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.id}
-                  href={`#${item.id}`}
+                  to={item.id}
+                  smooth={true}
+                  duration={500}
+                  offset={-15}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block w-full rounded px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+                  className="cursor-pointer block w-full rounded px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </nav>

@@ -1,27 +1,11 @@
-"use client";
-import { Badge } from "./ui/badge";
-import { Separator } from "./ui/separator";
-import { SOCIAL_LINKS, type SocialLink } from "../config/social";
+import { Badge } from "../ui/badge";
+import { Separator } from "../ui/separator";
+import { SOCIAL_LINKS, type SocialLink } from "../../config/social";
 import { type ComponentType } from "react";
+import { QuickLinksClient } from "./QuickLinksClient";
+import { FooterYear } from "./FooterYear";
 
-export function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const quickLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+export default function Footer() {
   return (
     <footer className="bg-muted/30 py-12">
       <div className="container mx-auto px-4 lg:px-8">
@@ -46,20 +30,8 @@ export function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div>
-              <h4 className="font-medium mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                {quickLinks.map((link, index) => (
-                  <button
-                    key={index}
-                    onClick={() => scrollToSection(link.href.substring(1))}
-                    className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <QuickLinksClient />
+
             {/* Connect */}
             <div>
               <h4 className="font-medium mb-4">Connect</h4>
@@ -105,7 +77,7 @@ export function Footer() {
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Carabet Corneliu. All rights reserved.
+              © <FooterYear /> Carabet Corneliu. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <a
