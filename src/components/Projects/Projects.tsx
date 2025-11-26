@@ -9,6 +9,22 @@ import ViewProjectsOnGithubButton from "./ViewProjectsOnGithubButton";
 export default function Projects() {
   const projects: Project[] = [
     {
+      title: "Personal Page (built with Next.js)",
+      description:
+        "A fast and SEO-friendly personal website built with Next.js. Includes lazy loading, optimized routing, responsive layout, and performance-driven architecture suitable for real-world client sites. Built around skill presentation, projects and contacts",
+      image: "/img/projects/personal-page-nextjs-project.jpg",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Netlify",
+      ],
+      demoLink: "https://carabetcorneliu-next.netlify.app/",
+      githubLink: "https://github.com/carabetcorneliu/personalPageNextJS",
+    },
+    {
       title: "Chef Claude App",
       description:
         "A cooking assistant, on top of Generative AI API for shortening the interval - from counting the ingredients to deciding what to cook.",

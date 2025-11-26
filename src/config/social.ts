@@ -5,7 +5,7 @@ import {
   SiGithub,
   SiLinkedin,
   SiTelegram,
-  SiMailboxdotorg,
+  // SiMailboxdotorg,
 } from "react-icons/si";
 
 export type SocialLink = {
@@ -38,10 +38,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     icon: SiTelegram,
     rel: "noopener noreferrer",
   },
-  {
-    id: "email",
-    label: "Email",
-    href: "/go/email",
-    icon: SiMailboxdotorg,
-  },
+  // {
+  //   id: "email",
+  //   label: "Email",
+  //   href: "/go/email",
+  //   icon: SiMailboxdotorg,
+  // },
 ] as const;
