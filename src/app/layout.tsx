@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Carabet Corneliu Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/img/og-image.png",
         width: 1200,
         height: 630,
         alt: "Carabet Corneliu — Full Stack Developer",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Carabet Corneliu — Full Stack Developer",
     description:
       "Full-stack developer specializing in fast, accessible web apps built with React, Next.js, Node.js, and Tailwind CSS.",
-    images: ["/og-image.png"],
+    images: ["/img/og-image.png"],
     creator: "@CarabetCornel",
   },
 };
