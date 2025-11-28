@@ -7,7 +7,7 @@ It highlights my skills, projects, and experience while serving as a central hub
 
 ## ✨ Features
 
-- **Modern Stack**: Built with Next.js 14 App Router and TypeScript
+- **Modern Stack**: Built with Next.js 16 App Router and TypeScript
 - **Responsive Design**: Optimized for all devices and screen sizes
 - **Performance Optimized**: Fast page loads and smooth animations
 - **Dark Mode**: Built-in dark/light theme support
@@ -21,7 +21,7 @@ It highlights my skills, projects, and experience while serving as a central hub
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Next.js 14, TypeScript, Tailwind CSS
+- **Frontend**: Next.js 16, TypeScript, Tailwind CSS
 - **UI Components**: shadcn/ui
 - **Icons**: Lucide Icons
 - **Deployment**: Netlify

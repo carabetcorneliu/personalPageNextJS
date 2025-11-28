@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset for fixed header */
+html {
+  scroll-padding-top: 4rem;
+}
+
 :root {
   --font-size: 14px;
   --background: #ffffff;

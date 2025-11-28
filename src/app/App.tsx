@@ -8,8 +8,8 @@ import { ContactLoading } from "@/components/Contact/loading";
 import { FooterLoading } from "@/components/Footer/loading";
 
 // Import Hero and Header directly - they're critical for FCP/LCP
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import Header from "@/components/Header/Header";
+import Hero from "@/components/Hero/Hero";
 
 // Dynamically import components with loading fallback
 const About = dynamic(() => import("@/components/About/About"), {
