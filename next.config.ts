@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // Enable React 19
   reactStrictMode: true,
   // Output standalone for better Netlify compatibility
-  output: 'standalone',
+  // output: 'standalone',
   // Disable the React compiler for now as it's experimental
   // reactCompiler: true,
   // Enable server components
