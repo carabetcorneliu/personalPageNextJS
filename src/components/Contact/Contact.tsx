@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Clock10, Send } from "lucide-react";
-import { SiTelegram } from "react-icons/si";
+import { TelegramIcon } from "@/components/ui/telegram-icon";
 import { motion, AnimatePresence } from "motion/react";
 import { CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -33,7 +33,7 @@ const contactInfo: ContactInfo[] = [
     link: "/go/email",
   },
   {
-    icon: SiTelegram,
+    icon: TelegramIcon,
     label: "Telegram",
     value: (
       <span style={{ unicodeBidi: "bidi-override", direction: "rtl" }}>
