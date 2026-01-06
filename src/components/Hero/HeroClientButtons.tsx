@@ -1,40 +1,32 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-scroll";
 
 export function HeroClientButtons() {
+  const scrollToSection = (sectionId: string, focusElementId?: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (focusElementId) {
+      setTimeout(() => {
+        document.getElementById(focusElementId)?.focus();
+      }, 600); // Wait for scroll to complete
+    }
+  };
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-      <Button asChild size="lg">
-        <Link
-          to="projects"
-          smooth="true"
-          duration={500}
-          offset={-15}
-          className="cursor-pointer"
-        >
-          View My Work
-        </Link>
+      <Button asChild size="lg"
+        onClick={() => scrollToSection("projects")}
+        className="cursor-pointer">
+        <a>View My Work</a>
       </Button>
       <Button
         asChild
         variant="outline"
         size="lg"
-        onClick={() => {
-          setTimeout(() => {
-            document.getElementById("name")?.focus();
-          }, 1000);
-        }}
+        onClick={() => scrollToSection("contact", "name")}
+        className="cursor-pointer"
       >
-        <Link
-          to="contact"
-          smooth="true"
-          duration={500}
-          offset={-15}
-          className="cursor-pointer"
-        >
-          Get In Touch
-        </Link>
+        <a>Get In Touch</a>
       </Button>
     </div>
   );

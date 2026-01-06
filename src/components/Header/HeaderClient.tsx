@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-scroll";
 
 interface NavItem {
   label: string;
@@ -55,17 +54,17 @@ export function HeaderClient({ navItems }: { navItems: NavItem[] }) {
         >
           <div className="py-3 space-y-1">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.id}
-                to={item.id}
-                smooth={true}
-                duration={500}
-                offset={-15}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  const element = document.getElementById(item.id);
+                  element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
                 className="cursor-pointer block w-full rounded px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
           </div>
         </nav>

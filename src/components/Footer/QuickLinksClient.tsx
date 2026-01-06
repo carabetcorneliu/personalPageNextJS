@@ -1,5 +1,4 @@
 "use client";
-import { Link } from "react-scroll";
 
 export function QuickLinksClient() {
   const quickLinks = [
@@ -13,17 +12,17 @@ export function QuickLinksClient() {
     <div>
       <h4 className="font-medium mb-4">Quick Links</h4>
       <div className="space-y-2">
-        {quickLinks.map((link, index) => (
-          <Link
-            key={index}
-            to={link.id}
-            smooth={true}
-            duration={500}
-            offset={-15}
-            className="cursor-pointer block text-sm text-muted-foreground hover:text-foreground transition-colors"
+        {quickLinks.map((link) => (
+          <button
+            key={link.id}
+            onClick={() => {
+              const element = document.getElementById(link.id);
+              element?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+            className="cursor-pointer block text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
           >
             {link.label}
-          </Link>
+          </button>
         ))}
       </div>
     </div>
