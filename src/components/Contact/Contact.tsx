@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +19,46 @@ const initialFormData: ContactFormData = {
   message: "",
 };
 
+const contactInfo: ContactInfo[] = [
+  {
+    icon: Mail,
+    label: "Email Me At",
+    value: (
+      <span style={{ unicodeBidi: "bidi-override", direction: "rtl" }}>
+        <span>moc.liamg</span>
+        <span>@</span>
+        <span>uilenroc.tebarac</span>
+      </span>
+    ),
+    link: "/go/email",
+  },
+  {
+    icon: SiTelegram,
+    label: "Telegram",
+    value: (
+      <span style={{ unicodeBidi: "bidi-override", direction: "rtl" }}>
+        <span>uilenroC</span>
+        <span>tebaraC</span>
+        <span>@</span>
+      </span>
+    ),
+    link: "/go/telegram",
+    linkText: "Send an email",
+  },
+  {
+    icon: Clock10,
+    label: "Availability",
+    value: (
+      <>
+        <span className="text-primary">Typically respond </span>
+        <span className="text-blue-500">within </span>
+        <span className="text-red-500">24 </span>
+        <span className="text-primary">hours or less</span>
+      </>
+    ),
+  },
+];
+
 export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,6 +67,8 @@ export default function Contact() {
   );
   const [isSuccess, setIsSuccess] = useState(false);
   const [progress, setProgress] = useState(0);
+  const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const successTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (status.message) {
@@ -41,17 +83,28 @@ export default function Contact() {
     }
   }, [status]);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  useEffect(() => {
+    return () => {
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current);
+      }
+      if (successTimeoutRef.current) {
+        clearTimeout(successTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Form submission time recording for spam detection
   const [formStartTime] = useState(Date.now());
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleInputChange = useCallback((
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }, []);
+
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Check if form was filled too quickly (less than 3 seconds)
@@ -66,7 +119,7 @@ export default function Contact() {
     setProgress(0);
 
     // Start progress simulation
-    const progressInterval = setInterval(() => {
+    progressIntervalRef.current = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 90) return prev;
         return prev + 10;
@@ -97,7 +150,9 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        clearInterval(progressInterval);
+        if (progressIntervalRef.current) {
+          clearInterval(progressIntervalRef.current);
+        }
         setProgress(100);
         setStatus({
           success: true,
@@ -105,7 +160,7 @@ export default function Contact() {
         });
         setIsSuccess(true);
 
-        setTimeout(() => {
+        successTimeoutRef.current = setTimeout(() => {
           setFormData(initialFormData);
           setIsSuccess(false);
           setProgress(0);
@@ -115,7 +170,9 @@ export default function Contact() {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      clearInterval(progressInterval);
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current);
+      }
       setProgress(0);
       setStatus({
         success: false,
@@ -125,55 +182,17 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [formData, formStartTime]);
 
-  const handleClickHireMe = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickHireMe = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const contactSection = document.getElementById("contact");
     contactSection?.scrollIntoView({ behavior: "smooth" });
-    const nameInput = document.getElementById("name");
-    nameInput?.focus();
-  };
-
-  const contactInfo: ContactInfo[] = [
-    {
-      icon: Mail,
-      label: "Email Me At",
-      value: (
-        <span style={{ unicodeBidi: "bidi-override", direction: "rtl" }}>
-          <span>moc.liamg</span>
-          <span>@</span>
-          <span>uilenroc.tebarac</span>
-        </span>
-      ),
-      link: "/go/email",
-    },
-    {
-      icon: SiTelegram,
-      label: "Telegram",
-      value: (
-        <span style={{ unicodeBidi: "bidi-override", direction: "rtl" }}>
-          <span>uilenroC</span>
-          <span>tebaraC</span>
-          <span>@</span>
-        </span>
-      ),
-      link: "/go/telegram",
-      linkText: "Send an email",
-    },
-    {
-      icon: Clock10,
-      label: "Availability",
-      value: (
-        <>
-          <span className="text-primary">Typically respond </span>
-          <span className="text-blue-500">within </span>
-          <span className="text-red-500">24 </span>
-          <span className="text-primary">hours or less</span>
-        </>
-      ),
-    },
-  ];
+    setTimeout(() => {
+      const nameInput = document.getElementById("name");
+      nameInput?.focus();
+    }, 600);
+  }, []);
 
   return (
     <section id="contact" className="py-20">
@@ -278,8 +297,8 @@ export default function Contact() {
                           width: isSuccess
                             ? "100%"
                             : isSubmitting
-                            ? "100%"
-                            : "100%",
+                              ? "100%"
+                              : "100%",
                         }}
                         transition={{ duration: 0.3 }}
                       >
