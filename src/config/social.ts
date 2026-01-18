@@ -1,12 +1,12 @@
 // import { Github, Linkedin, Mail, Twitter, Telegram } from "lucide-react";
 // import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 // import { SiX } from "react-icons/si";
+import { TelegramIcon } from "@/components/ui/telegram-icon";
 import {
-  SiGithub,
-  SiLinkedin,
-  SiTelegram,
+  Github,
+  Linkedin,
   // SiMailboxdotorg,
-} from "react-icons/si";
+} from "lucide-react";
 
 export type SocialLink = {
   id: "github" | "linkedin" | "telegram" | "email" | "website";
@@ -21,21 +21,21 @@ export const SOCIAL_LINKS: SocialLink[] = [
     id: "github",
     label: "GitHub",
     href: "/go/github",
-    icon: SiGithub,
+    icon: Github,
     rel: "noopener noreferrer",
   },
   {
     id: "linkedin",
     label: "LinkedIn",
     href: "/go/linkedin",
-    icon: SiLinkedin,
+    icon: Linkedin,
     rel: "noopener noreferrer",
   },
   {
     id: "telegram",
     label: "Telegram",
     href: "/go/telegram",
-    icon: SiTelegram,
+    icon: TelegramIcon,
     rel: "noopener noreferrer",
   },
   // {
