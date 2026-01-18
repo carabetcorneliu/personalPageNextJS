@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap", // Prevents FOIT (Flash of Invisible Text)
+  preload: true,
+  fallback: ["system-ui", "arial"],
+  adjustFontFallback: true, // Reduces layout shift
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: "Carabet Corneliu — Full Stack Developer",
@@ -52,6 +59,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
+      <head>
+        {/* Preconnect to Google Fonts for faster font loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch for additional performance */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
