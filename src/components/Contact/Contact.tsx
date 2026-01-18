@@ -373,6 +373,7 @@ export default function Contact() {
                           <p className="text-sm text-muted-foreground">
                             {info.label}
                           </p>
+                          {info.link ? (
                           <a
                             href={info.link}
                             target="_blank"
@@ -381,6 +382,9 @@ export default function Contact() {
                           >
                             {info.value}
                           </a>
+                          ) : (
+                            <span className="font-medium">{info.value}</span>
+                          )}
                         </div>
                       </div>
                     </CardContent>
