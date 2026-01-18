@@ -17,7 +17,7 @@ export function HeroClientButtons() {
       <Button asChild size="lg"
         onClick={() => scrollToSection("projects")}
         className="cursor-pointer">
-        <a>View My Work</a>
+        <a href="#projects">View My Work</a>
       </Button>
       <Button
         asChild
@@ -26,7 +26,7 @@ export function HeroClientButtons() {
         onClick={() => scrollToSection("contact", "name")}
         className="cursor-pointer"
       >
-        <a>Get In Touch</a>
+        <a href="#contact">Get In Touch</a>
       </Button>
     </div>
   );

@@ -373,14 +373,18 @@ export default function Contact() {
                           <p className="text-sm text-muted-foreground">
                             {info.label}
                           </p>
-                          <a
-                            href={info.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-medium hover:text-primary transition-colors"
-                          >
-                            {info.value}
-                          </a>
+                          {info.link ? (
+                            <a
+                              href={info.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-medium hover:text-primary transition-colors"
+                            >
+                              {info.value}
+                            </a>
+                          ) : (
+                            <p className="font-medium">{info.value}</p>
+                          )}
                         </div>
                       </div>
                     </CardContent>
