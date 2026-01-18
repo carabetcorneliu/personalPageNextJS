@@ -1,43 +1,60 @@
-# robots.txt for Personal Portfolio Website
+# Robots.txt for Personal Portfolio Website
 # https://carabetcorneliu-next.netlify.app
+
+# ============================================
+# GLOBAL RULES
+# ============================================
 
 # Default rules for all bots
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Allow crawling of main pages
-Allow: /privacy
-Allow: /terms
-
-# Disallow API routes
+# Disallow temporary, system, and development files
 Disallow: /api/
+Disallow: /api/contact
+Disallow: /api/submit
+Disallow: /_next/
+Disallow: /_error
+Disallow: /404
+Disallow: /500
+Disallow: /tmp/
+Disallow: /.well-known/
+Disallow: /dev/
+Disallow: /staging/
+Disallow: /test/
 
-# Disallow Next.js internals
-Disallow: /_next/static/
-Disallow: /_next/image
-
-# Disallow form handling endpoints
+# Disallow Netlify form handling endpoints
 Disallow: /__forms.html
 
 # Sitemap location
 Sitemap: https://carabetcorneliu-next.netlify.app/sitemap.xml
 
-# Google-specific settings
+# ============================================
+# SEARCH ENGINES
+# ============================================
+
+# Google
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
+Crawl-delay: 0.5
 
-# Googlebot Image
 User-agent: Googlebot-Image
 Allow: /
-Allow: /img/
 
-# Google AdSense
 User-agent: Mediapartners-Google
 Allow: /
 
-# Bing-specific settings
+# Bing
 User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot-Image
+Allow: /
+
+# Yahoo
+User-agent: Slurp
 Allow: /
 Crawl-delay: 1
 
@@ -56,35 +73,45 @@ User-agent: Baiduspider
 Allow: /
 Crawl-delay: 2
 
-# LinkedIn Bot (for link previews)
-User-agent: LinkedInBot
-Allow: /
+# ============================================
+# SOCIAL MEDIA CRAWLERS (for link previews)
+# ============================================
 
-# Twitter Bot (for card previews)
-User-agent: Twitterbot
-Allow: /
-
-# Facebook Bot (for Open Graph previews)
 User-agent: facebookexternalhit
 Allow: /
 
-# Telegram Bot (for link previews)
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
 User-agent: TelegramBot
 Allow: /
 
-# Slack Bot (for link previews)
 User-agent: Slackbot
 Allow: /
 
-# Discord Bot (for embed previews)
 User-agent: Discordbot
 Allow: /
 
-# WhatsApp Bot (for link previews)
 User-agent: WhatsApp
 Allow: /
 
-# Block AI scrapers and training bots
+# ============================================
+# ARCHIVE & RESEARCH CRAWLERS
+# ============================================
+
+User-agent: ia_archiver
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+# ============================================
+# BLOCK AI SCRAPERS & TRAINING BOTS
+# ============================================
+
 User-agent: CCBot
 Disallow: /
 
@@ -124,7 +151,10 @@ Disallow: /
 User-agent: YouBot
 Disallow: /
 
-# Block aggressive/bad bots
+# ============================================
+# BLOCK AGGRESSIVE SEO CRAWLERS
+# ============================================
+
 User-agent: AhrefsBot
 Disallow: /
 
@@ -152,7 +182,10 @@ Disallow: /
 User-agent: SeznamBot
 Crawl-delay: 5
 
-# Block scrapers
+# ============================================
+# BLOCK MALICIOUS SCRAPERS
+# ============================================
+
 User-agent: scrapy
 Disallow: /
 
