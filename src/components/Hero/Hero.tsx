@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <Badge variant="secondary" className="mb-6">
-            Open to roles · Remote · Shipping with AI agents{" "}
+            Open to roles · Shipping with AI agents{" "}
             <span aria-hidden>
               🦞
             </span>
