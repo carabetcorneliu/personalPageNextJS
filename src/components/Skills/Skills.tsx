@@ -5,7 +5,7 @@ export default function Skills() {
   const skillCategories = [
     {
       title: "Frontend",
-      skills: ["React", "TypeScript", "Javascript", "Next.js", "Tailwind CSS"],
+      skills: ["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "shadcn/ui"],
     },
     {
       title: "Backend",
@@ -14,37 +14,24 @@ export default function Skills() {
     {
       title: "Tools & DevOps",
       skills: [
-        "VSCode / Windsurf",
         "Git & GitHub",
-        "Postman",
+        "Linux",
+        "Docker",
+        "Oracle Cloud",
         "Vercel",
-        "Jest",
-        "Kinde",
         "Netlify",
+        "Jest",
+        "Postman",
+        "Kinde",
       ],
     },
     {
       title: "Design",
-      skills: ["Figma", "Photoshop", "Illustrator", "AutoCAD"],
-    },
-  ];
-
-  const highlights = [
-    {
-      title: "18+ Months",
-      description: "Hands-on Full-Stack Development Experience",
+      skills: ["Figma", "Photoshop", "Illustrator"],
     },
     {
-      title: "10+ Projects",
-      description: "Personal and Learning Projects Delivered",
-    },
-    {
-      title: "Focused on Quality",
-      description: "Clean Code & Usable Interfaces",
-    },
-    {
-      title: "Continuous Learning",
-      description: "Keeping Up with Modern Web Development",
+      title: "AI & Tooling",
+      skills: ["Openclaw", "agentic workflows", "multi-agent orchestration", "prompt engineering"],
     },
   ];
 
@@ -61,21 +48,15 @@ export default function Skills() {
             </h2>
           </div>
 
-          {/* Stats */}
+          {/* Quote */}
+          <p className="text-muted-foreground italic text-sm">
+            "In a time of drastic change it is the learners who inherit the future..."
+            <span className="not-italic">— Eric Hoffer</span>
+          </p>
+
+          /* {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {highlights.map((highlight, index) => (
-              <Card key={index}>
-                <CardContent className="p-6 text-center">
-                  <div className="text-2xl md:text-3xl font-medium text-primary mb-2">
-                    {highlight.title}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {highlight.description}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          </div> */
 
           {/* Skills */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
