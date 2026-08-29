@@ -17,7 +17,6 @@ export default function Hero() {
             <span aria-hidden>
               🦞
             </span>
-            <span className="sr-only">On-site not preferred</span>
           </Badge>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6">
