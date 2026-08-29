@@ -1,6 +1,6 @@
 Personal Website – Fullstack Web Developer
 
-🌐 [Live Demo](https://carabetcorneliu-next.netlify.app/)
+🌐 [Live Demo](https://carabetcorneliu.netlify.app/)
 
 This is my personal website built with Next.js, showcasing my work as a Fullstack Web Developer.
 It highlights my skills, projects, and experience while serving as a central hub to connect with me.
