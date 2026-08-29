@@ -49,14 +49,12 @@ export default function Skills() {
           </div>
 
           {/* Quote */}
-          <p className="text-muted-foreground italic text-sm">
-            "In a time of drastic change it is the learners who inherit the future..."
-            <span className="not-italic">— Eric Hoffer</span>
-          </p>
-
-          /* {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          </div> */
+          <div className="">
+            <p className="text-muted-foreground italic text-sm">
+              "In a time of drastic change it is the learners who inherit the future. The learned usually find themselves equipped to live in a world that no longer exists."
+              <span className="not-italic">— Eric Hoffer</span>
+            </p>
+          </div>
 
           {/* Skills */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
