@@ -21,7 +21,7 @@ export default function Projects() {
         "Framer Motion",
         "Netlify",
       ],
-      demoLink: "https://carabetcorneliu-next.netlify.app/",
+      demoLink: "https://carabetcorneliu.netlify.app/",
       githubLink: "https://github.com/carabetcorneliu/personalPageNextJS",
     },
     {
