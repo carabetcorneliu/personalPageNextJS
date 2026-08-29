@@ -49,7 +49,7 @@ export default function Skills() {
           </div>
 
           {/* Quote */}
-          <blockquote className="mx-auto mb-12 max-w-2xl text-center">
+          <blockquote className="mx-auto mb-14 max-w-2xl text-center">
             <p className="text-sm italic leading-relaxed text-muted-foreground">
               "In a time of drastic change it is the learners who inherit the future.
               The learned usually find themselves equipped to live in a world that
@@ -59,6 +59,19 @@ export default function Skills() {
               — Eric Hoffer
             </footer>
           </blockquote>
+
+          {/* Quote */}
+          <blockquote className="mx-auto mb-14 max-w-2xl text-center">
+            <p className="font-serif text-base italic leading-relaxed text-muted-foreground">
+              "In a time of drastic change it is the learners who inherit the future.
+              The learned usually find themselves equipped to live in a world that
+              no longer exists."
+            </p>
+            <footer className="mt-2 text-xs text-muted-foreground/80">
+              — Eric Hoffer
+            </footer>
+          </blockquote>
+          
 
           {/* Skills */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
