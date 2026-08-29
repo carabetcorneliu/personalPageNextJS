@@ -12,6 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://carabetcorneliu.netlify.app"),
   title: "Carabet Corneliu — Full Stack Developer",
   description:
     "I'm Carabet Corneliu, a full-stack developer building fast, accessible web apps with React, Next.js, Node.js, and Tailwind CSS.",
@@ -29,11 +30,11 @@ export const metadata: Metadata = {
     title: "Carabet Corneliu — Full Stack Developer",
     description:
       "Portfolio of Corneliu Carabet, a full-stack developer creating performant, accessible web applications using React, Next.js, Node.js, and Tailwind CSS.",
-    url: "https://carabetcorneliu-next.netlify.app",
+    url: "/",
     siteName: "Carabet Corneliu Portfolio",
     images: [
       {
-        url: "/img/og-image.png",
+        url: "/img/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Carabet Corneliu — Full Stack Developer",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     title: "Carabet Corneliu — Full Stack Developer",
     description:
       "Full-stack developer specializing in fast, accessible web apps built with React, Next.js, Node.js, and Tailwind CSS.",
-    images: ["/img/og-image.png"],
+    images: ["/img/og-image.jpg"],
     creator: "@CarabetCornel",
   },
 };
