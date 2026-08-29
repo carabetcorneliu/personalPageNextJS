@@ -31,7 +31,7 @@ export default function Skills() {
     },
     {
       title: "AI & Tooling",
-      skills: ["Openclaw 🦞", "agentic workflows", "multi-agent orchestration", "prompt engineering"],
+      skills: ["Openclaw 🦞", "Agentic Workflows", "Multi-Agent Orchestration", "Prompt Engineering"],
     },
   ];
 
