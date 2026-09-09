@@ -53,21 +53,21 @@ export default function Projects() {
       demoLink: "https://todo-app-orpin-eta-35.vercel.app/",
       githubLink: "https://github.com/carabetcorneliu/ToDo-App-Portfolio",
     },
-    {
-      title: "Personal Page",
-      description:
-        "A responsive website built with React and Tailwind CSS. Features smooth animations and optimized performance. Built around skill presentation, projects and contacts",
-      image: "/img/projects/personal-page-project.jpg",
-      technologies: [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Framer Motion",
-        "Netlify",
-      ],
-      demoLink: "https://carabetcorneliu.netlify.app/",
-      githubLink: "https://github.com/carabetcorneliu/personalPage",
-    },
+    // {
+    //   title: "Personal Page",
+    //   description:
+    //     "A responsive website built with React and Tailwind CSS. Features smooth animations and optimized performance. Built around skill presentation, projects and contacts",
+    //   image: "/img/projects/personal-page-project.jpg",
+    //   technologies: [
+    //     "React",
+    //     "TypeScript",
+    //     "Tailwind CSS",
+    //     "Framer Motion",
+    //     "Netlify",
+    //   ],
+    //   demoLink: "https://carabetcorneliu.netlify.app/",
+    //   githubLink: "https://github.com/carabetcorneliu/personalPage",
+    // },
   ];
 
   return (
@@ -79,10 +79,10 @@ export default function Projects() {
               Featured Work
             </Badge>
             <h2 className="text-3xl md:text-4xl mb-6">Things I{`'`}ve Built</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {/* <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Here are some of my recent projects that highlight my skills in
               front-end and full-stack development.
-            </p>
+            </p> */}
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
