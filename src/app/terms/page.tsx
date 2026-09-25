@@ -14,11 +14,11 @@ export default function Terms() {
         </Link>
       </div>
       <h1 className="text-3xl font-semibold mb-6">Terms of Service</h1>
-      <p className="text-gray-600 mb-8">Last updated: November 2025</p>
+      <p className="text-gray-600 mb-8">Last updated: September 2026</p>
 
       <section className="mb-8">
         <p className="mb-4">
-          Thank you for visiting carabetcorneliu-next.netlify.app (the{" "}
+          Thank you for visiting carabetcorneliu.netlify.app (the{" "}
           {`"Website"`}). By using this Website, you agree to the following
           terms:
         </p>
@@ -69,7 +69,7 @@ export default function Terms() {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">6. Privary</h2>
+        <h2 className="text-2xl font-semibold mb-4">6. Privacy</h2>
         <p>
           For details about how we handle your personal data, see our{" "}
           <a href="/privacy">[Privacy Policy]</a>.
