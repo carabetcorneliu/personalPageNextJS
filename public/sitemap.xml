@@ -6,24 +6,24 @@
  
   <!-- Homepage -->
   <url>
-    <loc>https://carabetcorneliu-next.netlify.app/</loc>
-    <lastmod>2026-01-18</lastmod>
+    <loc>https://carabetcorneliu.netlify.app/</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
  
   <!-- Privacy Policy -->
   <url>
-    <loc>https://carabetcorneliu-next.netlify.app/privacy</loc>
-    <lastmod>2026-01-18</lastmod>
+    <loc>https://carabetcorneliu.netlify.app/privacy</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
  
   <!-- Terms of Service -->
   <url>
-    <loc>https://carabetcorneliu-next.netlify.app/terms</loc>
-    <lastmod>2026-01-18</lastmod>
+    <loc>https://carabetcorneliu.netlify.app/terms</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
