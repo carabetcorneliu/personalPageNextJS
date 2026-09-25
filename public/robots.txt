@@ -1,5 +1,5 @@
 # Robots.txt for Personal Portfolio Website
-# https://carabetcorneliu-next.netlify.app
+# https://carabetcorneliu.netlify.app
  
 # ============================================
 # GLOBAL RULES
@@ -28,7 +28,7 @@ Disallow: /test/
 Disallow: /__forms.html
  
 # Sitemap location
-Sitemap: https://carabetcorneliu-next.netlify.app/sitemap.xml
+Sitemap: https://carabetcorneliu.netlify.app/sitemap.xml
  
 # ============================================
 # SEARCH ENGINES
