@@ -14,11 +14,11 @@ export default function Privacy() {
         </Link>
       </div>
       <h1 className="text-3xl font-semibold mb-6">Privacy Policy</h1>
-      <p className="text-gray-600 mb-8">Last updated: November 2025</p>
+      <p className="text-gray-600 mb-8">Last updated: September 2026</p>
 
       <section className="mb-8">
         <p className="mb-4">
-          Thank you for visiting carabetcorneliu-next.netlify.app (the{" "}
+          Thank you for visiting carabetcorneliu.netlify.app (the{" "}
           {`"Website"`}), operated by Corneliu Carabet. This Privacy Policy
           explains how I collect, use, and protect your personal information.
         </p>
