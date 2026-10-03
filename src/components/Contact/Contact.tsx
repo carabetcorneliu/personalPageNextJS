@@ -30,7 +30,7 @@ const contactInfo: ContactInfo[] = [
         <span>uilenroc.tebarac</span>
       </span>
     ),
-    link: "/go/email",
+    link: "mailto:carabet.corneliu@gmail.com",
   },
   {
     icon: TelegramIcon,
