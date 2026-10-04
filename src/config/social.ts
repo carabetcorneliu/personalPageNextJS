@@ -3,9 +3,9 @@
 // import { SiX } from "react-icons/si";
 import { TelegramIcon } from "@/components/ui/telegram-icon";
 import {
-  Github,
+  // Github,
   Linkedin,
-  // SiMailboxdotorg,
+  SiMailboxdotorg,
 } from "lucide-react";
 
 export type SocialLink = {
