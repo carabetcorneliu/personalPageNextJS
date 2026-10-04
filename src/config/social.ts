@@ -17,11 +17,18 @@ export type SocialLink = {
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
+  // {
+  //   id: "github",
+  //   label: "GitHub",
+  //   href: "/go/github",
+  //   icon: Github,
+  //   rel: "noopener noreferrer",
+  // },
   {
-    id: "github",
-    label: "GitHub",
-    href: "/go/github",
-    icon: Github,
+    id: "telegram",
+    label: "Telegram",
+    href: "/go/telegram",
+    icon: TelegramIcon,
     rel: "noopener noreferrer",
   },
   {
@@ -32,16 +39,9 @@ export const SOCIAL_LINKS: SocialLink[] = [
     rel: "noopener noreferrer",
   },
   {
-    id: "telegram",
-    label: "Telegram",
-    href: "/go/telegram",
-    icon: TelegramIcon,
-    rel: "noopener noreferrer",
+    id: "email",
+    label: "Email",
+    href: "/go/email",
+    icon: SiMailboxdotorg,
   },
-  // {
-  //   id: "email",
-  //   label: "Email",
-  //   href: "/go/email",
-  //   icon: SiMailboxdotorg,
-  // },
 ] as const;
