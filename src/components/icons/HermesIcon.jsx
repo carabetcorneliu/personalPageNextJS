@@ -7,7 +7,7 @@ export default function HermesIcon({ className = "w-4 h-4" }) {
       className={className}
       aria-hidden="true"
     >
-      {/img/hermes-logo.svg}
+      {/img/nousresearch.svg}
     </svg>
   );
 }
