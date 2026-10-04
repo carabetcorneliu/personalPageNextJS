@@ -1,11 +1,11 @@
 // import { Github, Linkedin, Mail, Twitter, Telegram } from "lucide-react";
 // import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 // import { SiX } from "react-icons/si";
+import { SiMailboxdotorg } from "react-icons/si";
 import { TelegramIcon } from "@/components/ui/telegram-icon";
 import {
   // Github,
   Linkedin,
-  SiMailboxdotorg,
 } from "lucide-react";
 
 export type SocialLink = {
