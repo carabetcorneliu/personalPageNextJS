@@ -41,7 +41,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     id: "email",
     label: "Email",
-    href: "/go/email",
+    href: "mailto:carabet.corneliu@gmail.com",
     icon: SiMailboxdotorg,
   },
 ] as const;
