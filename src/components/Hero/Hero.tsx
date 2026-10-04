@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { SOCIAL_LINKS, type SocialLink } from "@/config/social";
 import { type ComponentType } from "react";
 import ScrollToAboutClientButton from "./ScrollToAboutClientButton";
+import HermesIcon from "@/components/icons/HermesIcon"
 
 export default function Hero() {
   return (
@@ -16,6 +17,7 @@ export default function Hero() {
             Open to Work · Shipping with AI agents{" "}
             <span aria-hidden>
               🦞
+              <HermesIcon className="w-4 h-4" />
             </span>
           </Badge>
 
