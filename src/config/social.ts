@@ -1,9 +1,10 @@
 // import { Github, Linkedin, Mail, Twitter, Telegram } from "lucide-react";
 // import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 // import { SiX } from "react-icons/si";
-import { SiMailboxdotorg } from "react-icons/si";
+// import { SiMailboxdotorg } from "react-icons/si";
 import { TelegramIcon } from "@/components/ui/telegram-icon";
 import {
+  mail-pen,
   // Github,
   Linkedin,
 } from "lucide-react";
@@ -42,6 +43,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     id: "email",
     label: "Email",
     href: "mailto:carabet.corneliu@gmail.com",
-    icon: SiMailboxdotorg,
+    icon: mail-pen,
   },
 ] as const;
