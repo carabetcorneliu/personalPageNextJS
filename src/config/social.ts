@@ -4,7 +4,7 @@
 // import { SiMailboxdotorg } from "react-icons/si";
 import { TelegramIcon } from "@/components/ui/telegram-icon";
 import {
-  mail-pen,
+  MailPen,
   // Github,
   Linkedin,
 } from "lucide-react";
@@ -43,6 +43,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     id: "email",
     label: "Email",
     href: "mailto:carabet.corneliu@gmail.com",
-    icon: mail-pen,
+    icon: MailPen,
   },
 ] as const;
