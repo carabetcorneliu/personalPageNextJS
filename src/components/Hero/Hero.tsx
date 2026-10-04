@@ -17,7 +17,7 @@ export default function Hero() {
             Open to Work · Shipping with AI agents{" "}
             <span aria-hidden>
               🦞
-              <HermesIcon className="w-4 h-4" />
+              <HermesIcon />
             </span>
           </Badge>
 
